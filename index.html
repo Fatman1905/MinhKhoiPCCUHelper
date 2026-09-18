@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Công cụ chuẩn hoá Ảnh thẻ — JPEG 260x325 | Nguyễn Minh Khôi</title>
+  <meta name="description" content="Công cụ hỗ trợ sinh viên chuẩn hoá ảnh thẻ JPEG 260x325, tỉ lệ 4:5, không méo ảnh. Sản phẩm của Nguyễn Minh Khôi, tân sinh viên PCCU.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+
+    <header>
+      <span class="badge">HỖ TRỢ SINH VIÊN</span>
+      <h1>📸 Công cụ chuẩn hoá Ảnh thẻ — JPEG 260×325</h1>
+      <p>Phục vụ sinh viên làm thẻ, hồ sơ, giấy tờ theo đúng quy chuẩn (tỉ lệ 4:5, không méo ảnh)</p>
+      <p class="author">👤 Sản phẩm: <b>Nguyễn Minh Khôi</b> — Tân sinh viên PCCU</p>
+    </header>
+
+    <div class="steps">
+      <div class="step"><b>Bước 1</b><br>Tải ảnh chân dung lên</div>
+      <div class="step"><b>Bước 2</b><br>Chỉnh sáng, crop khung chuẩn</div>
+      <div class="step"><b>Bước 3</b><br>Xem preview &amp; tải JPEG về máy</div>
+    </div>
+
+    <div class="drop" id="drop">
+      <p>Kéo thả ảnh vào đây hoặc <b>bấm chọn file</b></p>
+      <p class="hint">Hỗ trợ JPG · PNG · WebP — xử lý hoàn toàn trên trình duyệt, không upload máy chủ</p>
+      <input type="file" id="file" accept="image/*" hidden>
+    </div>
+
+    <div class="row hidden" id="work">
+      <div class="panel">
+        <h3>Preview 260×325</h3>
+        <canvas id="out" width="260" height="325"></canvas>
+        <p class="stats" id="stats"></p>
+        <div class="btns">
+          <button class="primary" id="dl">⬇ Tải JPEG</button>
+          <button class="ghost" id="again">🔄 Ảnh khác</button>
+        </div>
+      </div>
+      <div class="panel">
+        <h3>Tuỳ chỉnh</h3>
+        <label>Độ sáng <span class="val" id="vB">100%</span></label>
+        <input type="range" id="bright" min="40" max="180" value="100">
+        <label>Độ tương phản <span class="val" id="vC">100%</span></label>
+        <input type="range" id="contrast" min="40" max="180" value="100">
+        <label>Độ bão hoà <span class="val" id="vS">100%</span></label>
+        <input type="range" id="sat" min="0" max="200" value="100">
+        <label>Thu phóng <span class="val" id="vZ">100%</span></label>
+        <input type="range" id="zoom" min="50" max="250" value="100">
+        <label>Dịch ngang / dọc <span class="val" id="vP">0 / 0</span></label>
+        <input type="range" id="px" min="-100" max="100" value="0">
+        <input type="range" id="py" min="-100" max="100" value="0">
+        <label>Lật ảnh</label>
+        <select id="flip">
+          <option value="none">Không lật</option>
+          <option value="h">Lật ngang (mirror)</option>
+        </select>
+        <label>Màu nền (nếu ảnh thiếu khung)</label>
+        <input type="color" id="bg" value="#ffffff">
+        <div class="btns">
+          <button class="ghost" id="reset">Đặt lại</button>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      © Nguyễn Minh Khôi — Tân sinh viên PCCU · Công cụ chạy 100% trên trình duyệt, ảnh không rời máy bạn
+    </footer>
+
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
